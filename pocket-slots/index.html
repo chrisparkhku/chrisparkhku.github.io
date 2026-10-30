@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5ed">
+  <meta name="description" content="A pocket-sized slot-building game. 20 spins, four upgrades, and a little luck. Play free in your browser.">
+  <title>Pocket Slots · Build your luck</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Pocket Slots home"><span class="brand-icon" aria-hidden="true"><svg class="asterisk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32M4 20h32M9 9l22 22M9 31 31 9"/></svg></span><span>pocket<span class="brand-light">slots</span></span></a>
+      <span class="header-note">A SMALL GAME OF BIG POSSIBILITIES</span>
+      <div class="header-actions"><button class="icon-button" id="sound-toggle" aria-label="Turn sound on" aria-pressed="false"></button><button class="icon-button help-button" id="help-toggle" aria-label="How to play">?</button></div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow"><span class="tiny-star">✦</span> LUCK, WITH A LITTLE STRATEGY</p><h1 id="page-title">Build your <span>luck.</span><svg class="title-spark" viewBox="0 0 50 50" aria-hidden="true"><path d="M25 2v46M2 25h46M8 8l34 34M8 42L42 8"/></svg></h1><p class="intro-copy">Spin. Remix your reels. See what clicks.</p></div>
+        <div class="best-badge"><span class="best-icon" aria-hidden="true">♛</span><div><span class="eyebrow">PERSONAL BEST</span><strong id="best-score">—</strong></div><span class="badge-star" aria-hidden="true">✧</span></div>
+      </section>
+
+      <div class="game-layout">
+        <section class="game-panel" aria-label="Slot machine">
+          <div class="scoreboard"><div><span class="eyebrow">YOUR POINTS</span><div class="score-line"><strong id="score">0</strong><span class="score-gain" id="score-gain"></span></div></div><div class="goal-stat"><span class="eyebrow">THE GOAL</span><strong>1,000<span> pts</span></strong><span id="goal-caption">Let’s make it happen.</span></div></div>
+          <div class="goal-track" role="progressbar" aria-label="Progress toward 1,000 points" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0" id="goal-track"><span id="goal-fill"></span></div>
+          <div class="machine" id="machine">
+            <div class="machine-top"><span><span class="machine-star"><svg class="asterisk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32M4 20h32M9 9l22 22M9 31 31 9"/></svg></span> POCKET ORIGINALS</span><span class="machine-status"><i></i><span id="machine-status">READY TO ROLL</span></span></div>
+            <div class="reel-frame"><span class="payline-arrow left" aria-hidden="true">▸</span><div class="reels" id="reels" aria-label="Reel results"><div class="reel" id="reel-0"></div><div class="reel" id="reel-1"></div><div class="reel" id="reel-2"></div></div><span class="payline-arrow right" aria-hidden="true">◂</span></div>
+            <div class="result" aria-live="polite" aria-atomic="true"><strong id="result-title">Your next good idea starts here.</strong><span id="result-detail">20 spins. 4 upgrades. One beautiful little experiment.</span></div>
+            <button class="spin-button" id="spin-button"><span class="spin-decoration" aria-hidden="true">✦</span><span id="spin-label">LET’S SPIN</span><span class="spin-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+            <div class="machine-bottom"><span><b id="spins-left">20</b> SPINS LEFT</span><span class="space-hint">PRESS SPACE TO SPIN</span><span id="run-number">RUN 01</span></div>
+            <span class="machine-screw screw-left" aria-hidden="true"></span><span class="machine-screw screw-right" aria-hidden="true"></span>
+          </div>
+          <div class="upgrade-strip"><span class="upgrade-icon" aria-hidden="true">✦</span><div><strong id="upgrade-title">Make it yours</strong><span id="upgrade-caption">A new symbol in 4 spins</span></div><div class="upgrade-dots" id="upgrade-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+        </section>
+
+        <aside class="recipe-panel" aria-labelledby="recipe-title">
+          <div class="recipe-heading"><div><p class="eyebrow">A LITTLE LESS RANDOM</p><h2 id="recipe-title">Your reel recipe<span><svg class="arrow-icon diagonal-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></h2></div><span class="recipe-count">6 SLOTS</span></div>
+          <p class="recipe-copy">Every reel picks from these six slots.<br>Swap a symbol. Change your chances.</p>
+          <div class="recipe-grid" id="recipe-grid"></div>
+          <div class="recipe-tip" id="recipe-tip"><span aria-hidden="true"><svg class="asterisk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32M4 20h32M9 9l22 22M9 31 31 9"/></svg></span><p><strong>Good things come in multiples.</strong>Pairs pay ×2. Triples pay ×3.<br>Matching symbols only.</p></div>
+          <div class="remix-note"><span class="note-spark" aria-hidden="true">✧</span><p>A fresh remix<br><em>every 4 spins.</em></p><svg viewBox="0 0 70 45" aria-hidden="true"><path d="M5 8c30 0 50 10 40 28m-9-8 9 9 11-5"/></svg></div>
+          <button class="rules-link" id="paytable-toggle">Meet the symbols <span><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+        </aside>
+      </div>
+      <div class="bottom-note"><span>✦</span> A little chance. A little choice. All play.</div>
+    </main>
+    <footer><span>pocket-sized fun, made for your thumbs.</span><span>FREE PLAY · NO REAL MONEY</span></footer>
+  </div>
+
+  <dialog id="upgrade-dialog" class="game-dialog upgrade-dialog" aria-labelledby="upgrade-dialog-title"><div class="dialog-body"><p class="eyebrow">THE REEL REMIX · <span id="upgrade-round">01 / 04</span></p><h2 id="upgrade-dialog-title">A little twist<br>of fate.</h2><p id="upgrade-instruction" class="dialog-copy">Pick a new symbol for your recipe.</p><div id="upgrade-choices" class="upgrade-choices"></div><div id="replacement-step" hidden><div id="selected-symbol" class="selected-symbol"></div><p class="replace-label">Which slot should it replace?</p><div id="replacement-grid" class="replacement-grid"></div><button class="text-button" id="change-choice">← Choose a different symbol</button></div><p class="dialog-footnote">Your recipe is shared by all three reels.</p><button class="text-button" id="upgrade-later">Back to the machine</button></div></dialog>
+
+  <dialog id="help-dialog" class="game-dialog" aria-labelledby="help-title"><div class="dialog-body"><button class="dialog-close icon-button" data-close="help-dialog" aria-label="Close instructions">×</button><p class="eyebrow">SMALL GAME. GOOD POSSIBILITIES.</p><h2 id="help-title">Here’s the deal.</h2><ol class="how-to"><li><span>01</span><div><strong>You have 20 spins.</strong><p>Collect 1,000 points to win your run. Keep going after the goal to set a personal best.</p></div></li><li><span>02</span><div><strong>Matching is magic.</strong><p>Each symbol earns its base points. A pair doubles those two symbols; a triple triples all three.</p></div></li><li><span>03</span><div><strong>Build your own luck.</strong><p>After spins 4, 8, 12, and 16, choose a symbol and replace one of your six recipe slots.</p></div></li></ol><div class="plain-note">Each reel independently picks one of your six slots with equal probability. More copies mean better odds of matching. Your run saves on this device.</div><button class="primary-button" data-close="help-dialog">GOT IT. LET’S PLAY <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button><button class="text-button" id="restart-button">Start a fresh run</button><div id="restart-confirm" hidden><p>Leave this run and start from zero?</p><button class="text-button" id="confirm-restart">Yes, start fresh</button><button class="text-button" id="cancel-restart">Keep playing</button></div></div></dialog>
+
+  <dialog id="paytable-dialog" class="game-dialog" aria-labelledby="paytable-title"><div class="dialog-body"><button class="dialog-close icon-button" data-close="paytable-dialog" aria-label="Close symbol guide">×</button><p class="eyebrow">THE CAST OF CHARACTERS</p><h2 id="paytable-title">Meet your lucky six.</h2><p class="dialog-copy">Six recipe slots. Seven possible symbols.</p><div id="paytable" class="paytable"></div><div class="plain-note">Matches apply first, then diamonds multiply neighboring symbol payouts. Clover and magnet bonuses are added last and are not multiplied.</div></div></dialog>
+
+  <dialog id="end-dialog" class="game-dialog end-dialog" aria-labelledby="end-title"><div class="dialog-body"><button class="dialog-close icon-button" data-close="end-dialog" aria-label="Close run summary">×</button><div class="end-art" aria-hidden="true"><svg class="asterisk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32M4 20h32M9 9l22 22M9 31 31 9"/></svg></div><p class="eyebrow" id="end-eyebrow">THAT’S A WRAP</p><h2 id="end-title">A pocketful<br>of possibilities.</h2><strong id="end-score" class="end-score">0</strong><p class="dialog-copy" id="end-description"></p><div id="end-recipe" class="end-recipe"></div><button class="primary-button" id="play-again">ONE FRESH RECIPE <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button><button class="text-button" id="share-button">Share your score</button><p class="share-status" id="share-status" aria-live="polite"></p></div></dialog>
+  <noscript><div class="noscript">Pocket Slots needs JavaScript to run. Enable it in your browser, then reload.</div></noscript>
+</body>
+</html>
