@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101914">
+  <meta name="description" content="Please Collect Your Photos. A short first-person horror story set in an after-hours photo lab. For desktop browsers.">
+  <title>Please Collect Your Photos</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game" aria-label="First-person photo shop">
+    <canvas id="world" aria-label="3D game view"></canvas>
+    <div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+    <div id="fade" aria-hidden="true"></div>
+    <div class="hud" id="hud" hidden>
+      <div class="location"><span class="location-dot"></span>MORI PHOTO LAB<span class="location-time">23:47</span></div>
+      <div class="task"><span id="chapter">AFTER HOURS</span><p id="objective">The customer is waiting.</p></div>
+      <div id="crosshair" aria-hidden="true"></div>
+      <div id="interact" hidden><kbd>E</kbd><span id="interact-label"></span></div>
+      <div id="process" hidden><span id="process-label">THE IMAGE IS COMING THROUGH</span><div><i id="process-fill"></i></div></div>
+      <div class="controls-hint" id="controls-hint">W A S D &nbsp; MOVE &emsp; MOUSE &nbsp; LOOK &emsp; E &nbsp; INTERACT &emsp; ESC &nbsp; PAUSE</div>
+      <div class="print-count"><span id="print-count">—</span><span>COLLECTION 047</span></div>
+    </div>
+    <div id="subtitle" aria-live="polite" aria-atomic="true"><span id="speaker"></span><p id="line"></p></div>
+    <section id="start" class="screen start-screen" aria-labelledby="title">
+      <div class="start-content">
+        <div class="eyebrow"><i></i> AN AFTER-HOURS STORY</div>
+        <h1 id="title">Please collect<br>your <em>photos.</em></h1>
+        <div class="title-rule"></div>
+        <p class="premise">The last customer is still outside.<br>There are three photographs left to develop.</p>
+        <button id="begin" class="begin-button" disabled><span id="begin-label">OPENING THE SHOP</span><span aria-hidden="true">→</span></button>
+        <p id="load-status" class="load-status" role="status">Preparing the darkroom…</p>
+        <div class="start-options"><label><input type="checkbox" id="sound" checked> Sound</label><label><input type="checkbox" id="comfort"> Steady camera</label><label>Look sensitivity <input id="sensitivity" type="range" min="0.4" max="1.8" value="0.9" step="0.1" aria-label="Mouse look sensitivity"></label></div>
+      </div>
+      <div class="start-meta"><span>FIRST PERSON · ABOUT 3 MINUTES</span><span>DESKTOP + HEADPHONES RECOMMENDED</span></div>
+      <div class="content-note">Quiet psychological horror · unsettling imagery · no gore</div>
+      <div class="film-edge" aria-hidden="true">047 — 35 MM — EXP. 03</div>
+    </section>
+    <section id="pause" class="screen pause-screen" hidden aria-labelledby="pause-title"><div><p class="eyebrow">THE SHOP CAN WAIT</p><h2 id="pause-title">A moment.</h2><p class="pause-copy">WASD to walk. Mouse to look. E to interact.<br>Arrow keys also turn the camera.<br>Press Escape to pause at any time.</p><button id="resume" class="begin-button">RETURN TO THE SHOP <span>→</span></button><button id="restart" class="text-button">Start the story again</button><p id="restart-confirm" hidden>Restart from the beginning? <button id="confirm-restart">Restart</button><button id="cancel-restart">Keep this run</button></p></div></section>
+    <section id="photo-view" hidden aria-label="Inspect photograph">
+      <div class="photo-heading"><span>COLLECTION 047</span><span id="negative-number">NEGATIVE 01 / 03</span></div>
+      <div class="photo-paper" id="photo-paper"><div class="photo-window"><img id="photo-image" alt="Developed photograph"><img id="photo-reveal" alt="" aria-hidden="true"></div><div class="photo-footer"><span>MORI COLOR SERVICE</span><span id="photo-date">10 29 ’98</span></div></div>
+      <p class="photo-instruction" id="photo-instruction">Move your mouse to inspect the print.</p><button id="lower-photo" class="text-button">E / PUT THE PHOTOGRAPH DOWN</button>
+    </section>
+    <section id="ending" class="screen ending-screen" hidden aria-labelledby="ending-title"><div><p class="eyebrow">COLLECTION 047</p><h2 id="ending-title">Is that<br><em>everyone?</em></h2><div class="title-rule"></div><p>Four photographs.<br>Three exposures.</p><button id="again" class="begin-button">VISIT THE SHOP AGAIN <span>→</span></button><p class="end-credit">PLEASE COLLECT YOUR PHOTOS<br><span>A short story by the darkroom.</span></p></div></section>
+    <section id="unsupported" class="screen" hidden><div><p class="eyebrow">PLEASE COLLECT YOUR PHOTOS</p><h2 id="unsupported-title">A larger window.</h2><p id="unsupported-message">Visit the shop on a laptop or desktop with a keyboard and mouse.</p></div></section>
+  </main>
+  <noscript>This game needs JavaScript and a desktop browser with WebGL 2 enabled.</noscript>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
